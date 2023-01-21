@@ -31,7 +31,7 @@ const formatLogRowFromEvent = (event) => {
     const message = event[0];
     const { severity, count } = event[1];
 
-    return `[${severity.toUpperCase()}] "${message}", in ${count} rows`;
+    return `[${severity.toUpperCase()}] "${message}", ${count} rows`;
 }
 
 export { groupPaperTrailEventsByMessage, sortPaperTrailEventEntries, formatLogRowFromEvent };
