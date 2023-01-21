@@ -18,7 +18,6 @@ const EmailService = {
         }
     },
     sendMail: (message) => {
-        // send email
         return nodemailerTransporter.sendMail({
             from: SMTPEmailAddress,
             to: SMTPTargetEmailAdress,
