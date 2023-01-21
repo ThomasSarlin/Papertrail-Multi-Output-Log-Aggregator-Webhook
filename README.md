@@ -3,7 +3,7 @@
 This repository provides a solution for grouping and counting logs from Papertrail using webhooks.
 It allows you to send these aggregated logs either via email(SMTP) or Slack using a bot token and channel id, providing you with a convienent way to get an overview of your most common/urgent log messages.  
   
-The aggregated logs are sent to the desired output channel with one line reoccuring message, sorted by the most common message.
+The aggregated logs are sent to the desired output channel with one line for each reoccuring message, sorted by the most common message.
 The text is formatted as follows:
 ```
 Aggregated result of your search {saved_search_name}:
