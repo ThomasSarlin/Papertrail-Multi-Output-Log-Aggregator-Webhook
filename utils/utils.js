@@ -32,7 +32,7 @@ const groupPaperTrailEventsByMessage = (event_group, {message, severity}) => {
  */
 
 const sortPaperTrailEventEntries = (event1, event2) => {
-    return event1[1].count - event2[1].count;
+    return event2[1].count - event1[1].count;
 }
 
 /**
