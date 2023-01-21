@@ -30,7 +30,7 @@ Open up the `.env` file and update the following variables:
 SLACK_TOKEN=
 SLACK_CHANNEL=
 ```
-All variables are required for the email initialization of the email service.
+All variables are required for the initialization of the slack service.
 
 
 
@@ -42,7 +42,7 @@ SMTP_PASSWORD=
 SMTP_EMAIL_ADDRESS=
 SMTP_TARGET_EMAIL_ADRESS=
 ```
-All variables are required for the email initialization of the email service.
+All variables are required for the initialization of the email service.
 
 ## Step 3: Launch application
 To start the application run
