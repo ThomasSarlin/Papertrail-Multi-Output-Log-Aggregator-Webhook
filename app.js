@@ -46,7 +46,7 @@ app.post('/submit', (req, res) => {
         EmailService.sendMail(message)
             .catch(err => console.error(err));
 
-    return res.status(status).send({response: message});
+    return res.status(status).send(message);
 })
 
 
