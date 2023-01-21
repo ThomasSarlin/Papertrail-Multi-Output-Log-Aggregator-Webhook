@@ -30,7 +30,7 @@ Open up the `.env` file and update the following variables:
 SLACK_TOKEN=
 SLACK_CHANNEL=
 ```
-All variables are required for the initialization of the slack service.
+All variables are required for the initialization of the Slack service.
 
 
 
