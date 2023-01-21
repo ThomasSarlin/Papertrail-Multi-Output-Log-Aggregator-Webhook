@@ -9,7 +9,7 @@ const getMessageFromEventLogs = (eventlogs, searchName) => {
     
     eventLogAggregations = Object.entries(eventLogAggregations).sort(sortPaperTrailEventEntries);
 
-    return header + eventGroups.map(formatLogRowFromEvent).join('\n');
+    return header + eventLogAggregations.map(formatLogRowFromEvent).join('\n');
 }
 
 /**
@@ -22,7 +22,7 @@ const groupPaperTrailEventsByMessage = (event_group, {message, severity}) => {
         event_group[message].count = event_group[message].count+1;
     else
         event_group[message] = { severity, count: 1 };
-    return event_groupM
+    return event_group;
 };
 
 /**
