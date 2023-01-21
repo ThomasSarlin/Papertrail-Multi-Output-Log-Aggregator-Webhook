@@ -9,7 +9,7 @@ const groupPaperTrailEventsByMessage = (event_group, {message, severity}) => {
         event_group[message].count = event_group[message].count+1;
     else
         event_group[message] = { severity, count: 1 };
-    return event_group
+    return event_groupM
 };
 
 /**
