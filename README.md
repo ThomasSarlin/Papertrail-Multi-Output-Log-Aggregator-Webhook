@@ -1,7 +1,16 @@
 # Papertrail-Multi-Output-Log-Aggregator-Webhook
 
 This repository provides a solution for grouping and counting logs from Papertrail using webhooks.
-It allows you to send these aggregated logs either via email(SMTP) or Slack using a bot token and channel id, providing you with a convienent way to get an overview of your most common/urgent log messages. 
+It allows you to send these aggregated logs either via email(SMTP) or Slack using a bot token and channel id, providing you with a convienent way to get an overview of your most common/urgent log messages.  
+  
+The aggregated logs are sent to the desired output channel with one line reoccuring message, sorted by the most common message.
+The text is formatted as follows:
+```
+Aggregated result of your search {saved_search_name}:
+[SEVERITY] "message", {message count} rows. 
+...
+...
+```
 
 ## Step 1: Deploy your application to your server.
 Clone this repository to your server and install de dependenices by running
