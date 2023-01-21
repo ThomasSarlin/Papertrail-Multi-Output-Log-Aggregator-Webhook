@@ -1,0 +1,30 @@
+{
+  "name": "Papertrail-Multi-Output-Log-Aggregator-Webhook",
+  "version": "1.0.0",
+  "description": "This repository provides a solution for grouping and counting logs from Papertrail using webhooks. It allows you to send these aggregated logs either via email(SMTP) or Slack using workflow-url directed towards your specified channel, providing you with a convienent way to get an overview of your most common/urgent log messages.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasSarlin/Papertrail-Multi-Output-Log-Aggregator-Webhook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomasSarlin/Papertrail-Multi-Output-Log-Aggregator-Webhook/issues"
+  },
+  "homepage": "https://github.com/ThomasSarlin/Papertrail-Multi-Output-Log-Aggregator-Webhook#readme",
+  "dependencies": {
+    "@slack/web-api": "^6.8.0",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.0"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0"
+  }
+}
