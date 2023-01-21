@@ -7,7 +7,6 @@ let slackWebClient = null;
 
 const SlackService = {
     init: () => {
-        console.log(SLACKChannel, SLACKToken);
         if(!!SLACKToken && !!SLACKChannel){
             slackWebClient = new WebClient(SLACKToken);
         }
