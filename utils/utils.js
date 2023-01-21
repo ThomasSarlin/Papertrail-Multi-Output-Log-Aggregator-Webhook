@@ -1,3 +1,16 @@
+/**
+ * Method for aggregating event-logs into a message string.
+ */
+
+const getMessageFromEventLogs = (eventlogs, searchName) => {
+    let header = `Aggregated result of your search "${searchName}":\n`;
+
+    let eventLogAggregations = eventlogs.reduce(groupPaperTrailEventsByMessage, {});
+    
+    eventLogAggregations = Object.entries(eventLogAggregations).sort(sortPaperTrailEventEntries);
+
+    return header + eventGroups.map(formatLogRowFromEvent).join('\n');
+}
 
 /**
  * Reducer function for grouping the event logs by message into a key/value object
@@ -34,4 +47,4 @@ const formatLogRowFromEvent = (event) => {
     return `[${severity.toUpperCase()}] "${message}", ${count} rows`;
 }
 
-export { groupPaperTrailEventsByMessage, sortPaperTrailEventEntries, formatLogRowFromEvent };
+export { getMessageFromEventLogs };
