@@ -10,7 +10,7 @@ const app = express();
 
 const STATUS = {
     OK: 200,
-    BAD_REQUEST: 400;
+    BAD_REQUEST: 400
 }
 
 app.use(bodyParser.json());
@@ -32,10 +32,13 @@ app.post('/submit', (req, res) => {
         message = 'No event-logs available';
     }
     else {
-        let eventGroups = events.reduce(groupPaperTrailEventsByMessage, {})
+        let eventLogAggregations = events.reduce(groupPaperTrailEventsByMessage, {});
+        eventLogAggregations = Object.entries(eventLogAggregations).sort(sortPaperTrailEventEntries);
 
-        eventGroups = Object.entries(eventGroups).sort(sortPaperTrailEventEntries)
-        message = `Aggregated result of your search "${req.body.payload.savedSearch.name}":\n`
+        if(req.body.payload.saved_search.name){
+            message = `Aggregated result of your search "${req.body.payload.saved_search.name}":\n`;
+        }
+
         message = message + eventGroups.map(formatLogRowFromEvent).join('\n');
     }
 
@@ -52,5 +55,5 @@ app.post('/submit', (req, res) => {
 
 
 
-app.listen(PORT, () => console.log(`Papertrail Log Aggregator Webhook service running on ${PORT}, submit payloads to '/submit'`))
+app.listen(PORT, () => console.log(`Papertrail Log Aggregator Webhook service running on ${PORT}, submit payloads to '/submit'`));
 
