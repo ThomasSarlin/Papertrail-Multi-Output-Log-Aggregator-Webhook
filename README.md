@@ -13,7 +13,7 @@ Aggregated result of your search {saved_search_name}:
 ```
 
 ## Step 1: Deploy your application to your server.
-Clone this repository to your server and install de dependenices by running
+Clone this repository to your server and install the dependenices by running
 `npm install`
 
 ## Step 2: Choose output.
