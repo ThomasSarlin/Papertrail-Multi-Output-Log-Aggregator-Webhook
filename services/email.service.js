@@ -17,9 +17,6 @@ const EmailService = {
             });
         }
     },
-    checkEmailEnv: () => {
-        return 
-    },
     sendMail: (message) => {
         // send email
         return nodemailerTransporter.sendMail({
