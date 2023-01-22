@@ -12,7 +12,6 @@ const STATUS = {
     BAD_REQUEST: 400
 }
 
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -21,32 +20,24 @@ EmailService.init();
 
 
 app.post('/submit', (req, res) => {
+
+    if(!req.body.payload.events || !req.body.payload)
+        return res.status(STATUS.BAD_REQUEST).send('Bad request');
+
     const events = req.body.payload.events;
     const searchName = req.body.payload.saved_search.name;
 
-    let message = '';
-    let status = STATUS.OK;
+    let message = getMessageFromEventLogs(events, searchName);
 
-    if(!events || !req.body.payload){
-        message = 'Bad Request';
-        status = STATUS.BAD_REQUEST;
-    }
-    else if (events.length === 0) {
-        message = `No event-logs available for your search ${searchName}`;
-    }
-    else {
-        message = getMessageFromEventLogs(events, searchName);
-    }
-
-    if(status === STATUS.OK && SlackService.isAvailable())
+    if(SlackService.isAvailable())
         SlackService.sendSlackMessage(message)
             .catch(err => console.error(err));
 
-    if(status === STATUS.OK && EmailService.isAvailable())
+    if(EmailService.isAvailable())
         EmailService.sendMail(message)
             .catch(err => console.error(err));
 
-    return res.status(status).send(message);
+    return res.status(STATUS.OK).send(message);
 })
 
 

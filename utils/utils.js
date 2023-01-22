@@ -4,12 +4,17 @@
 
 const getMessageFromEventLogs = (eventlogs, searchName) => {
     let header = `Aggregated result of your search "${searchName}":\n`;
+    let message = '';
 
     let eventLogAggregations = eventlogs.reduce(groupPaperTrailEventsByMessage, {});
-    
     eventLogAggregations = Object.entries(eventLogAggregations).sort(sortPaperTrailEventEntries);
 
-    return header + eventLogAggregations.map(formatLogRowFromEvent).join('\n');
+    if(eventLogAggregations.length === 0)
+        message = header +  `No event-logs available`;
+    else
+        message = header + eventLogAggregations.map(formatLogRowFromEvent).join('\n');
+
+    return message;
 }
 
 /**
