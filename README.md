@@ -7,7 +7,7 @@ The aggregated logs are sent to the desired output channel with one line for eac
 The text is formatted as follows:
 ```
 Aggregated result of your search {saved_search_name}:
-[SEVERITY] "message", {message count} rows. 
+[SEVERITY] "message", {message count} row(s). 
 ...
 ...
 ```
