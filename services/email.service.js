@@ -4,7 +4,7 @@ import { SMTPEmailAddress, SMTPTargetEmailAdress, SMTPPassword, SMTPServer } fro
 let nodemailerTransporter = null;
 
 const EmailService = {
-    init: () => {
+    init: async () => {
         if(!!SMTPServer && !!SMTPEmailAddress && !!SMTPPassword && !!SMTPTargetEmailAdress) {
             nodemailerTransporter = nodemailer.createTransport({
                 host: SMTPServer,
@@ -14,6 +14,13 @@ const EmailService = {
                     user: SMTPEmailAddress,
                     pass: SMTPPassword
                 }
+            }); 
+
+            return await nodemailerTransporter.verify().then(() => {
+                console.log('[[----Email Service is ONLINE!----]]');
+            }).catch(err => {
+                nodemailerTransporter = null;
+                console.log('[[----Email Service OFFLINE----]], SMTP verification returned the following error:'+ err);
             });
         }
     },
