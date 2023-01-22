@@ -46,7 +46,7 @@ All variables are required for the initialization of the email service.
 
 ## Step 3: Launch application
 To start the application run
-`node app.js`
+`npm run start`
 
 ## Step 4: Create a Papertrail saved search
 
