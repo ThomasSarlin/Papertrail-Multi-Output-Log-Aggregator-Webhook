@@ -49,7 +49,7 @@ const formatLogRowFromEvent = (event) => {
     const message = event[0];
     const { severity, count } = event[1];
 
-    return `[${severity.toUpperCase()}] "${message}", ${count} rows`;
+    return `[${severity.toUpperCase()}] "${message}", ${count} ${count === 1 ? 'row' : 'rows'}`;
 }
 
 export { getMessageFromEventLogs, formatLogRowFromEvent, sortPaperTrailEventEntries, groupPaperTrailEventsByMessage };
