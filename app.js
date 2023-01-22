@@ -1,6 +1,5 @@
 
 import express from "express";
-import bodyParser from "body-parser";
 
 import { getMessageFromEventLogs } from "./utils/eventLogAggregator.js";
 import { SlackService } from "./services/slack.service.js";
@@ -13,7 +12,7 @@ const STATUS = {
 }
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json());
 
 SlackService.init();
 EmailService.init();
