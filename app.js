@@ -21,11 +21,11 @@ EmailService.init();
 
 app.post('/submit', (req, res) => {
 
-    if(!req.body.events || !req.body.payload.events)
+    if(!req.body.events || !req.payload.events)
         return res.status(STATUS.BAD_REQUEST).send('Bad request');
 
-    const events = req.body.events || req.body.payload.events;
-    const searchName = req.body.saved_search.name || req.body.payload.saved_search.name;
+    const events = req.body.events || req.payload.events;
+    const searchName = req.body.saved_search.name || req.payload.saved_search.name;
 
     let message = getMessageFromEventLogs(events, searchName);
 
