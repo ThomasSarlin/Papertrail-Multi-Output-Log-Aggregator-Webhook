@@ -52,4 +52,4 @@ const formatLogRowFromEvent = (event) => {
     return `[${severity.toUpperCase()}] "${message}", ${count} rows`;
 }
 
-export { getMessageFromEventLogs };
+export { getMessageFromEventLogs, formatLogRowFromEvent, sortPaperTrailEventEntries, groupPaperTrailEventsByMessage };
